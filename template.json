@@ -1,0 +1,82 @@
+[
+  {
+    "type": 1,
+    "title": "MariaDB",
+    "name": "mariadb",
+    "description": "An Enhanced drop in replacement for Mysql",
+    "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/mariadb-icon.png",
+    "image": "linuxserver/mariadb:latest",
+    "categories": [
+      "Other",
+      "Tools"
+    ],
+    "platform": "linux",
+    "restart_policy": "unless-stopped",
+    "ports": [
+      {
+        "Database": "3306:3306/tcp"
+      }
+    ],
+    "volumes": [
+      {
+        "container": "/config",
+        "bind": "!config/Mariadb"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "label": "PUID",
+        "default": "!PUID"
+      },
+      {
+        "name": "PGID",
+        "label": "PGID",
+        "default": "!PGID"
+      },
+      {
+        "name": "MYSQL_ROOT_PASSWORD",
+        "label": "MYSQL_ROOT_PASSWORD",
+        "default": ""
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Adminer",
+    "name": "adminer",
+    "description": "An Enhanced drop in replacement for Mysql",
+    "logo": "https://djeqr6to3dedg.cloudfront.net/repo-logos/library/adminer/live/logo.png",
+    "image": "adminer:standalone",
+    "categories": [
+      "Other",
+      "Tools"
+    ],
+    "platform": "linux",
+    "restart_policy": "unless-stopped",
+    "ports": [
+      {
+        "Database": "8080:8080/tcp"
+      }
+    ],
+    "volumes": [
+      {
+        "container": "/config",
+        "bind": "!config/adminer"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "label": "PUID",
+        "default": "!PUID"
+      },
+      {
+        "name": "PGID",
+        "label": "PGID",
+        "default": "!PGID"
+      }
+    ]
+  }
+ 
+]
